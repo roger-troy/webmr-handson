@@ -33,15 +33,15 @@
      *
      * Makes any .glb work without you having to know anything about it first.
      *
-     * Models come in whatever units their author felt like using. The cat below
-     * is 84 units across; a Khronos model can be 155; a character from another
-     * site is 1.9. A single hard-coded scale factor would make one of them
-     * microscopic and another the size of a building. So you do not give a scale
-     * factor at all: you say how big you want it to END UP, in marker widths,
-     * and this measures the model and works the rest out.
+     * Models come in whatever units their author felt like using. The one below
+     * is about 1.9 units tall; a model from Khronos is 155; one from poly.pizza
+     * is 84. A single hard-coded scale factor would make one of them microscopic
+     * and another the size of a building. So you do not give a scale factor at
+     * all: you say how big you want it to END UP, in marker widths, and this
+     * measures the model and works the rest out.
      *
-     * What it found is printed at the bottom of the screen. You are on a phone;
-     * you have no console.
+     * What it measured is printed at the bottom of the screen. You are on a
+     * phone; you have no console.
      */
     AFRAME.registerComponent('fit-model', {
       schema: {
@@ -144,7 +144,7 @@
       <a-entity rotation="90 0 0">
 
         <a-entity
-          gltf-model="./assets/cat.glb"
+          gltf-model="./assets/Adventurer.glb"
           fit-model="size: 0.6">
         </a-entity>
 
@@ -153,21 +153,14 @@
              Try 0.2, then 2.0.
              Why is that a better thing to ask for than a raw scale factor?
              (Hint: the bottom of the screen tells you how big this model is in
-             its own units. Another model is 1.9. What single scale factor would
+             its own units. Another model is 155. What single scale factor would
              suit both?)
 
              ==== TASK 2: rotation ====
              Delete rotation="90 0 0" from the wrapper above.
              Where does the model go, and why?
 
-             ==== TASK 3: make it move ====
-             The model just sits there. Give it the same treatment as the box in
-             Stage 1 -- add this to the <a-entity> above:
-
-               animation="property: rotation; to: 0 360 0;
-                          dur: 4000; loop: true; easing: linear"
-
-             ==== TASK 4: bring your own model ====
+             ==== TASK 3: bring your own model ====
              Get a .glb from https://poly.pizza (search for anything, it is free).
              Then in YOUR fork on GitHub, open the assets folder and use
                 Add file -> Upload files
