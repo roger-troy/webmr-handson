@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Stage 2: Marker + IMU | MR Hands-on</title>
+  <title>Introduction | MR Hands-on</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
@@ -39,10 +39,19 @@
   </style>
 
   <script>
-    /* fit-model — same component as stage 1: measures the model in its own
-     * units and scales it so its biggest dimension ends up `size` marker
-     * widths, then stands it on the marker surface. See stage1.html for the
-     * full story of why. */
+    /* fit-model
+     *
+     * Makes any .glb work without you having to know anything about it first.
+     *
+     * Models come in whatever units their author felt like using. The one
+     * below is about 1.9 units tall; a model from Khronos is 155; one from
+     * poly.pizza is 84. A single hard-coded scale factor would make one of
+     * them microscopic and another the size of a building. So you do not give
+     * a scale factor at all: you say how big you want it to END UP, in marker
+     * widths, and this measures the model and works the rest out.
+     *
+     * What it measured is printed at the bottom of the screen. You are on a
+     * phone; you have no console. */
     AFRAME.registerComponent('fit-model', {
       schema: {
         size: { type: 'number', default:  1.5 }
@@ -109,10 +118,11 @@
   <script>
     /* imu-fusion
      *
-     * Stage 1 has one source of truth: the marker. Lose it and the
-     * pose is simply gone — the model vanishes. This page adds a second
-     * source of truth, the phone's motion sensors (the IMU), and runs the
-     * predict–correct loop that every real tracking system runs:
+     * A bare marker gives you one source of truth: while the camera sees
+     * it you have a pose, lose it and the pose is simply gone. This page
+     * adds a second source of truth, the phone's motion sensors (the IMU),
+     * and runs the predict–correct loop that every real tracking system
+     * runs:
      *
      *   marker visible → LOCALIZATION (correct). The marker gives the true
      *       pose. Adopt it, remember it, and zero everything the IMU has
@@ -300,7 +310,7 @@
 <body>
 
   <div id="hud">
-    <b>Stage 2: Marker + IMU</b> &mdash; find Marker A, then hide it on purpose<br />
+    <b>Introduction</b> &mdash; find Marker A, then hide it on purpose<br />
     <span id="status">Looking for the marker&hellip;</span> &middot; <a href="./index.html">Back to hub</a>
   </div>
 

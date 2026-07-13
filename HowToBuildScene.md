@@ -1,11 +1,11 @@
-# How to Build a Scene (Stage 3)
+# How to Build a Scene
 
 ## Loading a model
 
 - Get a `.glb` model from [poly.pizza](https://poly.pizza) (free, no account).
 - In **your fork** on GitHub, open the `assets` folder → **Add file → Upload
   files** → drop the `.glb` in → commit.
-- Add an entity for it inside the `#world` entity in `stage3.html`.
+- Add an entity for it inside the `#world` entity in `scene.html`.
 
 ## Writing it
 

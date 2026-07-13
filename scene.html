@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Stage 3: Build a Scene | MR Hands-on</title>
+  <title>Build Your Scene | MR Hands-on</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
 
-  <script src="./stage3.js"></script>
-  <link rel="stylesheet" href="./stage3.css" />
+  <script src="./scene.js"></script>
+  <link rel="stylesheet" href="./scene.css" />
 </head>
 <body>
 
   <div id="hud">
-    <b>Stage 3: Build a Scene</b> &mdash; point your camera at Marker A<br />
+    <b>Build Your Scene</b> &mdash; point your camera at Marker A<br />
     <span id="status">Looking for the marker&hellip;</span> &middot; <a href="./index.html">Back to hub</a>
   </div>
 
@@ -22,7 +22,7 @@
     <div id="controls">
       <button id="btn-imu">Enable IMU (look around without the marker)</button>
     </div>
-    <div id="model-info">no model loaded yet &mdash; see Stage3-HowToBuildScene.md</div>
+    <div id="model-info">no model loaded yet &mdash; see HowToBuildScene.md</div>
   </div>
 
   <a-scene
@@ -46,6 +46,42 @@
         <a-entity id="world" real-units>
 
           <!-- ==== YOUR SCENE ==== -->
+
+          <!-- Example -->
+             <a-entity
+              gltf-model="./assets/Castle.glb"
+              fit-model="size: 2"
+              position="0 0 0"
+              rotation="0 0 0">
+            </a-entity>
+
+            <a-entity
+              gltf-model="./assets/Temple.glb"
+              fit-model="size: 0.8"
+              position="0 0 0"
+              rotation="0 0 0">
+            </a-entity>
+
+            <a-entity
+              gltf-model="./asset/MarketStalls.glb"
+              fit-model="size: 0.5"
+              position="0.3 0 0.5"
+              rotation="0 45 0">
+            </a-entity>
+
+            <a-entity
+              gltf-model="./asset/House.glb"
+              fit-model="size: 0.5"
+              position="0.5 0 0.7"
+              rotation="0 45 0">
+            </a-entity>
+
+            <a-entity
+              gltf-model="./asset/Windmill.glb"
+              fit-model="size: 0.5"
+              position="-0.5 0 0.8"
+              rotation="0 0 0">
+            </a-entity>
 
         </a-entity>
       </a-entity>

@@ -1,12 +1,12 @@
-/* stage3.js — all the machinery behind stage3.html, kept out of the page
+/* scene.js — all the machinery behind scene.html, kept out of the page
  * so the scene markup stays readable. Nothing in here needs editing to
  * build a scene, with ONE exception: MARKER_WIDTH_M, just below. */
 
 // The printed target image is 120 mm wide (markers.html at 100% scale,
 // white border included). Everything metric on this page — the size of
 // #world and the IMU maths — derives from this one constant. If you
-// calibrated your marker in stage 2, use the same value here.
-const MARKER_WIDTH_M = 0.12;
+// calibrated your marker in the Introduction, use the same value here.
+const MARKER_WIDTH_M = 0.2;
 
 // Safari reports devicemotion acceleration with the opposite sign to
 // the spec (and to Android).
@@ -21,7 +21,7 @@ AFRAME.registerComponent('real-units', {
   }
 });
 
-/* fit-model — same component as stage 1: measures a .glb and scales it
+/* fit-model — same component as the Introduction: measures a .glb and scales it
  * so its biggest dimension ends up `size`, then stands it on the
  * surface. Inside #world, `size` is in metres. */
 AFRAME.registerComponent('fit-model', {
@@ -86,11 +86,11 @@ AFRAME.registerComponent('fit-model', {
   }
 });
 
-/* imu-fusion — same component as stage 2, and the reason your scene
- * survives losing the marker. Marker visible: adopt its pose and wipe
- * the IMU drift. Marker lost: hold the last pose, coasting on the
+/* imu-fusion — same component as the Introduction, and the reason your
+ * scene survives losing the marker. Marker visible: adopt its pose and
+ * wipe the IMU drift. Marker lost: hold the last pose, coasting on the
  * phone's orientation sensors so you can look around the scene.
- * See stage2.html for the full story. */
+ * See introduction.html for the full story. */
 AFRAME.registerComponent('imu-fusion', {
   schema: {
     anchor: { type: 'selector' }
@@ -166,7 +166,7 @@ AFRAME.registerComponent('imu-fusion', {
   },
 
   // Accelerometer → velocity → displacement (unused unless translation
-  // coasting is switched on — stage 2 shows why it is off here).
+  // coasting is switched on — the Introduction shows why it is off here).
   onMotion: function (e) {
     const a = e.acceleration; // gravity already removed by the OS
     if (!a || a.x === null || !this.haveOrientation) return;
@@ -231,7 +231,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   btnImu.addEventListener('click', () => {
     fusion().enable().then(() => {
-      fusion().rotationOn = true;   // no toggles here: stage 2 was the lesson
+      fusion().rotationOn = true;   // no toggles here: the Introduction was the lesson
       btnImu.disabled = true;
       btnImu.textContent = 'IMU: on';
     }).catch((err) => {
